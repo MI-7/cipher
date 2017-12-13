@@ -16,7 +16,7 @@ class polynomial:
         l2 = len(p2.coeffs)
         
         new_coeffs = []
-        if (l1 >= l2):
+        if l1 >= l2:
             p2_coeffs = [0] * (l1 - l2) + p2.coeffs
             new_coeffs = [p1.coeffs[i] + p2_coeffs[i] for i in range(0, len(p2_coeffs))]
         else:
@@ -32,7 +32,7 @@ class polynomial:
         return polynomial.sub(p1, p2)
     
     def scalarMult(self, s):
-        #Returns: a new polynomial with all coefficients of self, multiplied by s
+        # Returns: a new polynomial with all coefficients of self, multiplied by s
         return polynomial([self.coeffs[i] * s for i in range(0, len(self.coeffs))])
     
     def mul(p1, p2):
@@ -45,7 +45,7 @@ class polynomial:
         return p3   
      
     def shift(p, a):
-        #Returns: a new polynomial, multiplied by x**a.
+        # Returns: a new polynomial, multiplied by x**a.
         return polynomial(p.coeffs + [0] * a)
     
     def __mul__(p1, p2):
@@ -60,7 +60,7 @@ class polynomial:
 #__repr__(self, var='z')    
      
     def val(self, x):
-        #Returns: the value of the polynomial with the variable assigned to x.
+        # Returns: the value of the polynomial with the variable assigned to x.
         return sum([self.coeffs[i] * (x ** (len(self.coeffs) - 1 - i)) for i in range(0, len(self.coeffs))])
 
 # Galois Field
