@@ -1,5 +1,5 @@
-from sm.utility import *
-
+# -*- coding: utf-8 -*-
+'''
 class abc:
     def __init__(self,a):
         self.a = a
@@ -27,3 +27,10 @@ if __name__ == "__main__":
     x+=y
     print (x)
     print(abc.m(1,2))
+'''
+
+s = "ab测试字符cd".decode("utf-8").encode("utf-8")
+b = bytearray(s)
+print len(s)
+print b
+print "".join([chr(x) for x in b])

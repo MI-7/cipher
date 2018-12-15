@@ -1,13 +1,31 @@
+import binascii
+import sys
+
+
+def string_xor_in_bytes(a, b):
+    return [chr(ord(x) ^ ord(y)) for (x, y) in zip(a, b)]
+
+
+def string_xor(a, b):
+    return "".join(string_xor_in_bytes(a, b))
+
+
+if __name__ == "__main__":
+    print(string_xor_in_bytes('Hello World', 'Hello World'))
+    print(string_xor('Hello World', 'Hello World'))
+
+
+'''
 from os import urandom
 import numpy
 from numpy import frombuffer, bitwise_xor, byte, fromstring
 import time
-
+'''
 
 '''
 https://stackoverflow.com/questions/2119761/simple-python-challenge-fastest-bitwise-xor-on-data-buffers
 '''
-
+'''
 def slow_xor(aa, bb):
     a = frombuffer(aa, dtype=byte)
     b = frombuffer(bb, dtype=byte)
@@ -23,8 +41,8 @@ def faster_slow_xor(aa, bb):
 
 
 def simple_tests():
-    x1 = urandom(20)
-    x2 = urandom(20)
+    x1 = bytes('abcdefg', 'utf-8')
+    x2 = bytes('abcdefg', 'utf-8')
     y1 = frombuffer(x1, dtype=byte)
     y2 = frombuffer(x2, dtype=byte)
     z1 = bitwise_xor(y1, y2)
@@ -38,7 +56,7 @@ def test_slow_xor(aa, bb):
 
 
 if __name__ == "__main__":
-    # simple_tests()
+    simple_tests()
 
     aa = urandom(2 ** 20)
     bb = urandom(2 ** 20)
@@ -48,3 +66,5 @@ if __name__ == "__main__":
     test_slow_xor(aa, bb)
     b = time.time()
     print('time:', b - a)
+'''
+
